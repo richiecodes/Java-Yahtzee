@@ -1,4 +1,4 @@
-package com.richardscodes.Dice;
+package Dice;
 
 public class Dice {
     //Roll Method

@@ -1,6 +1,6 @@
-package com.richardscodes;
+package game;
 
-import com.richardscodes.Dice.Dice;
+import Dice.Dice;
 
 public class Yahtzee {
     //Initialize 5 die

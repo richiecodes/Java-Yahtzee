@@ -1,6 +1,5 @@
 package com.richardscodes;
-import com.richardscodes.Dice.Dice;
-import com.richardscodes.prompt.Menu;
+import prompt.Menu;
 
 import java.util.Scanner;
 

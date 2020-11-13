@@ -1,6 +1,6 @@
-package com.richardscodes.prompt;
+package prompt;
 
-import com.richardscodes.Yahtzee;
+import game.Yahtzee;
 
 import java.util.Scanner;
 
