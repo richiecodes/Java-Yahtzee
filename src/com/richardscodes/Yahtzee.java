@@ -14,7 +14,7 @@ public class Yahtzee {
         for (int i = 0; i < NUM_OF_DICE; i++) {
             dice[i] = new Dice();
         }
-        rollDice();
+        game();
     }
 
     public void rollDice() {
@@ -53,5 +53,10 @@ public class Yahtzee {
             } else if (i != choose)
                 System.out.println("Dice " + (i + 1) + " rolled a " + dice[i].getRollValue());
         }
+    }
+
+    public void game() {
+        rollDice();
+        printDiceValues();
     }
 }

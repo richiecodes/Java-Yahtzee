@@ -16,15 +16,13 @@ public class Menu {
             System.out.println("Welcome!");
         }
         System.out.println("Please select an option:\n");
-        if (loopCount <= 0) {
-            System.out.println("1. Play Game");
-        }
+        System.out.println("1. Play Game");
         System.out.println("2. Exit\n");
         String choice = scanner.nextLine();
 
         switch (choice) {
             case "1":
-                yahtzee.printDiceValues();
+                yahtzee.game();
                 loopCount++;
                 rerollDice();
                 break;
@@ -37,6 +35,7 @@ public class Menu {
             default:
                 System.out.println("PLEASE ENTER VALID INPUT\n\n");
                 loopCount++;
+                mainMenu(scanner);
                 break;
         }
 
@@ -52,6 +51,7 @@ public class Menu {
         switch (choice) {
             case "1":
                 yahtzee.rerollFirst();
+                rerollDice();
                 break;
 
             case "2":
@@ -61,6 +61,7 @@ public class Menu {
                 if (choose > 5) {
                     System.out.println("PLEASE ENTER VALID INPUT!\n");
                     rerollDice();
+                    return;
                 }
                 yahtzee.rerollSpecific(diceChoice);
                 break;
