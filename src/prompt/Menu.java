@@ -5,13 +5,11 @@ import game.Yahtzee;
 import java.util.Scanner;
 
 public class Menu {
-
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
     private int loopCount = 0;
     private Yahtzee yahtzee = new Yahtzee();
 
-    public void mainMenu(Scanner scanner) {
-        this.scanner = scanner;
+    public void mainMenu() {
         if (loopCount <= 0) {
             System.out.println("Welcome!");
         }
@@ -24,7 +22,7 @@ public class Menu {
             case "1":
                 yahtzee.game();
                 loopCount++;
-                rerollDice();
+                decision();
                 break;
 
             case "2":
@@ -35,13 +33,13 @@ public class Menu {
             default:
                 System.out.println("PLEASE ENTER VALID INPUT\n\n");
                 loopCount++;
-                mainMenu(scanner);
+                mainMenu();
                 break;
         }
 
     }
 
-    public void rerollDice() {
+    public void decision() {
         System.out.println("What would you like to do?");
         System.out.println("1. Reroll First Dice");
         System.out.println("2. Reroll specific dice");
@@ -51,7 +49,7 @@ public class Menu {
         switch (choice) {
             case "1":
                 yahtzee.rerollFirst();
-                rerollDice();
+                decision();
                 break;
 
             case "2":
@@ -60,7 +58,7 @@ public class Menu {
                 int choose = Integer.parseInt(diceChoice);
                 if (choose > 5) {
                     System.out.println("PLEASE ENTER VALID INPUT!\n");
-                    rerollDice();
+                    decision();
                     return;
                 }
                 yahtzee.rerollSpecific(diceChoice);
@@ -68,12 +66,12 @@ public class Menu {
 
             case "3":
                 loopCount = 0;
-                mainMenu(scanner);
+                mainMenu();
                 break;
 
             default:
                 System.out.println("PLEASE ENTER VALID INPUT!\n");
-                rerollDice();
+                decision();
                 break;
         }
     }

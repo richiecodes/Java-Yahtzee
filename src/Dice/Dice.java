@@ -1,8 +1,6 @@
 package Dice;
 
 public class Dice {
-    //Roll Method
-    //Die has random value each roll
     private int rollValue;
 
     public void roll() {

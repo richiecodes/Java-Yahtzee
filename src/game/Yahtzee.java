@@ -3,9 +3,7 @@ package game;
 import Dice.Dice;
 
 public class Yahtzee {
-    //Initialize 5 die
     private final int NUM_OF_DICE = 5;
-    //private int rollCount = 3;
     private Dice[] dice;
     private int rerollFirst = 0;
 
