@@ -1,0 +1,25 @@
+v1.0 (Rel. 11/12/20)
+    - Initial version of game
+
+    - Handles rolling 5 random die
+
+    - Basic menuing system
+
+    - Handles user choice of what to do after a roll
+
+
+v1.0.1 (Rel. 11/16/20)
+    - Cleaned and refactored some code for better readability
+
+    - Added new empty classes & packages for future use
+
+    - Starting a new game now (crudely) clears the console screen for the sake of
+      less clutter
+
+    * Fixed a bug in the menuing system where if the user
+      exited a game and started a new game, the value
+      of the 5 die would equal what it was the first time they
+      played
+
+    * Fixed a bug that would prematurely end the game if the
+      user chose to re-roll a specific die

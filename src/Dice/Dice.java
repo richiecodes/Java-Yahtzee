@@ -1,6 +1,13 @@
 package Dice;
 
+/*
+*
+* This class generates a random die for Yahtzee to generate
+*
+* */
+
 public class Dice {
+
     private int rollValue;
 
     public void roll() {
