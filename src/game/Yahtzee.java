@@ -1,6 +1,8 @@
 package game;
 
 import Dice.Dice;
+
+import java.util.Random;
 /*
 *
 * This class handles all game logic
@@ -11,6 +13,7 @@ public class Yahtzee {
     private final int NUM_OF_DICE = 5;
     private Dice[] dice;
     private int rerollFirst = 0;
+    private Random rand = new Random();
 
     public Yahtzee() {
         dice = new Dice[NUM_OF_DICE];
@@ -21,7 +24,7 @@ public class Yahtzee {
 
     public void rollDice() {
         for (int i = 0; i < NUM_OF_DICE; i++)
-            dice[i].roll();
+            dice[i].roll(rand);
     }
 
     public void printDiceValues() {
@@ -35,7 +38,7 @@ public class Yahtzee {
 
 
     public void rerollFirst() {
-        dice[0].roll();
+        dice[0].roll(rand);
 
         for (int i = 0; i < NUM_OF_DICE; i++) {
 
@@ -53,7 +56,7 @@ public class Yahtzee {
 
     public void rerollSpecific(String choice) {
         int choose = Integer.parseInt(choice) - 1;
-        dice[choose].roll();
+        dice[choose].roll(rand);
 
         for (int i = 0; i < NUM_OF_DICE; i++) {
 
