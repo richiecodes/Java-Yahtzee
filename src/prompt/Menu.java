@@ -14,6 +14,7 @@ public class Menu {
     private Scanner scanner;
     private int loopCount = 0;
     private Yahtzee yahtzee = new Yahtzee();
+    private int numOfTurns = 0;
 
     public Menu (Scanner scanner) {
         this.scanner = scanner;
@@ -50,44 +51,55 @@ public class Menu {
     }
 
     public void decision() { //This sub-menu handles the user's decision after 5 dice are rolled
-        System.out.println("\n" +
-                "What would you like to do?");
-        System.out.println("1. Reroll first dice");
-        System.out.println("2. Reroll specific dice");
-        System.out.println("3. Back to main menu\n");
-        System.out.print("Choice: ");
-        String choice = scanner.nextLine();
+        System.out.println(numOfTurns);
+        while (numOfTurns < 2) {
+            System.out.println("\n" +
+                    "What would you like to do?");
+            System.out.println("1. Reroll first dice");
+            System.out.println("2. Reroll specific dice");
+            System.out.println("3. Back to main menu\n");
+            System.out.print("Choice: ");
+            String choice = scanner.nextLine();
 
-        switch (choice) {
-            case "1":
-                yahtzee.rerollFirst();
-                decision();
-                break;
+            switch (choice) {
+                case "1":
+                    numOfTurns++;
+                    yahtzee.rerollFirst();
+                    decision();
+                    return;
 
-            case "2":
-                System.out.println("\nWhich dice would you like to reroll?:\n");
-                System.out.print("Choice: ");
-                String diceChoice = scanner.nextLine();
-                int choose = Integer.parseInt(diceChoice);
-                if (choose > 5 || choose <= 0) {
+                case "2":
+                    numOfTurns++;
+                    System.out.println("\nWhich dice would you like to reroll?:\n");
+                    System.out.print("Choice: ");
+                    String diceChoice = scanner.nextLine();
+                    int choose = Integer.parseInt(diceChoice);
+                    if (choose > 5 || choose <= 0) {
+                        System.out.println("\nInvalid input. Please try again...\n");
+                        decision();
+                        return;
+                    }
+                    System.out.println();
+                    yahtzee.rerollSpecific(diceChoice);
+                    decision();
+                    return;
+
+                case "3":
+                    numOfTurns = 0;
+                    clearScreen();
+                    mainMenu();
+                    return;
+
+                default:
                     System.out.println("\nInvalid input. Please try again...\n");
                     decision();
                     return;
-                }
-                System.out.println();
-                yahtzee.rerollSpecific(diceChoice);
-                decision();
-                break;
+            }
 
-            case "3":
-                clearScreen();
-                mainMenu();
-                break;
+        }
 
-            default:
-                System.out.println("\nInvalid input. Please try again...\n");
-                decision();
-                break;
+        if (numOfTurns == 2) {
+            System.out.println("End of turn");
         }
     }
 
